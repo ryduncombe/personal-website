@@ -16,6 +16,10 @@
 			#wrapper > section:first-child .content {
 				transform: translateY(28vh);
 				text-align: center;
+				padding: 2rem 5rem 1rem;
+				width: fit-content;
+				margin-left: auto;
+				margin-right: auto;
 			}
 			#wrapper > section:first-child .content h1 {
 				margin-top: 0;
@@ -30,6 +34,8 @@
 				flex: 0 0 auto;
 				width: auto !important;
 				margin: 0.25rem;
+				position: relative;
+				overflow: visible !important;
 			}
 			#gallery .gallery article .image {
 				display: block;
@@ -48,6 +54,18 @@
 			#gallery .gallery article .caption {
 				display: none !important;
 			}
+			#gallery .gallery article .photo-label {
+				position: absolute;
+				bottom: 0.75rem;
+				left: 0.75rem;
+				margin: 0;
+				font-size: 0.75em;
+				color: rgba(255,255,255,0.9);
+				font-style: italic;
+				text-shadow: 0 1px 3px rgba(0,0,0,0.8);
+				pointer-events: none;
+				z-index: 2;
+			}
 		</style>
 	</head>
 	<body class="is-preload">
@@ -58,7 +76,7 @@
 				<!-- Banner -->
 					<section class="banner style2 orient-center content-align-center image-position-center onload-image-fade-in fullscreen">
 						<div class="content">
-							<h1>Other stuff</h1>
+							<h1>Personal stuff</h1>
 							<ul class="actions stacked">
 								<li><a href="index.html" class="button big wide">Back to Research</a></li>
 							</ul>
@@ -72,7 +90,7 @@
 					<section class="spotlight style1 orient-right content-align-left image-position-center onscroll-image-fade-in" id="life">
 						<div class="content">
 							<h2>Home and hobbies</h2>
-							<p>I live in Pacifica, California with my wife and daughter. Pacifica is a small, beautiful, and somewhat crusty beach town just south of San Francisco. Outside of work I like to pursue too many hobbies. A selection: swimming (in the pool and the ocean), weightlifting, running, hiking, reading, listening to and collecting music, photography, Bonsai, and travel. In a previous life, I was a DJ for a heavy metal radio station, and I completed a DIY Ironman triathlon during the COVID-19 pandemic (barely, it nearly killed me).</p>
+							<p>I live in Pacifica, California with my wife and daughter. Pacifica is a small, beautiful, and somewhat crusty beach town just south of San Francisco. Outside of work I like to pursue too many hobbies. A selection: swimming (in the pool and the ocean), weightlifting, running, hiking, reading, listening to and collecting music, photography, bonsai, and travel. In a previous life, I was a DJ for a heavy metal radio station, and I completed a DIY Ironman triathlon during the COVID-19 pandemic (barely, it nearly killed me).</p>
 						</div>
 						<div class="image">
 							<img src="images/life.jpeg" alt="" />
@@ -125,707 +143,427 @@
 							<a href="images/gallery/20240923-DSC_0172.jpg_compressed.JPEG" class="image">
 								<img src="images/gallery/20240923-DSC_0172.jpg_compressed.JPEG" alt="" />
 							</a>
-							<div class="caption">
-								<ul class="actions fixed">
-									<li><span class="button small">View</span></li>
-								</ul>
-							</div>
+							<p class="photo-label">John Muir Wilderness, California</p>
 						</article>
 						<article>
 							<a href="images/gallery/20240924-DSC_0456-Pano.jpg_compressed.JPEG" class="image">
 								<img src="images/gallery/20240924-DSC_0456-Pano.jpg_compressed.JPEG" alt="" />
 							</a>
-							<div class="caption">
-								<ul class="actions fixed">
-									<li><span class="button small">View</span></li>
-								</ul>
-							</div>
+							<p class="photo-label">John Muir Wilderness, California</p>
 						</article>
 						<article>
 							<a href="images/gallery/20240924-DSC_0482-Pano.jpg_compressed.JPEG" class="image">
 								<img src="images/gallery/20240924-DSC_0482-Pano.jpg_compressed.JPEG" alt="" />
 							</a>
-							<div class="caption">
-								<ul class="actions fixed">
-									<li><span class="button small">View</span></li>
-								</ul>
-							</div>
+							<p class="photo-label">John Muir Wilderness, California</p>
 						</article>
 						<article>
 							<a href="images/gallery/DJI_20240317155356_0373_D-HDR.jpg_compressed.JPEG" class="image">
 								<img src="images/gallery/DJI_20240317155356_0373_D-HDR.jpg_compressed.JPEG" alt="" />
 							</a>
-							<div class="caption">
-								<ul class="actions fixed">
-									<li><span class="button small">View</span></li>
-								</ul>
-							</div>
+							<p class="photo-label">New York City, from Hoboken</p>
 						</article>
 						<article>
 							<a href="images/gallery/DJI_20240413032715_0476_D-HDR.jpg_compressed.JPEG" class="image">
 								<img src="images/gallery/DJI_20240413032715_0476_D-HDR.jpg_compressed.JPEG" alt="" />
 							</a>
-							<div class="caption">
-								<ul class="actions fixed">
-									<li><span class="button small">View</span></li>
-								</ul>
-							</div>
+							<p class="photo-label">Rincon, Puerto Rico</p>
 						</article>
 						<article>
 							<a href="images/gallery/DSC_0334-HDR-Pano.jpg_compressed.JPEG" class="image">
 								<img src="images/gallery/DSC_0334-HDR-Pano.jpg_compressed.JPEG" alt="" />
 							</a>
-							<div class="caption">
-								<ul class="actions fixed">
-									<li><span class="button small">View</span></li>
-								</ul>
-							</div>
+							<p class="photo-label">John Muir Wilderness, California</p>
 						</article>
 						<article>
 							<a href="images/gallery/DSC_0785.jpg_compressed.JPEG" class="image">
 								<img src="images/gallery/DSC_0785.jpg_compressed.JPEG" alt="" />
 							</a>
-							<div class="caption">
-								<ul class="actions fixed">
-									<li><span class="button small">View</span></li>
-								</ul>
-							</div>
+							<p class="photo-label">Paris, France</p>
 						</article>
 						<article>
 							<a href="images/gallery/DSC_1348-HDR.jpg_compressed.JPEG" class="image">
 								<img src="images/gallery/DSC_1348-HDR.jpg_compressed.JPEG" alt="" />
 							</a>
-							<div class="caption">
-								<ul class="actions fixed">
-									<li><span class="button small">View</span></li>
-								</ul>
-							</div>
+							<p class="photo-label">Versailles, France</p>
 						</article>
 						<article>
 							<a href="images/gallery/DSC_1368-HDR.jpg_compressed.JPEG" class="image">
 								<img src="images/gallery/DSC_1368-HDR.jpg_compressed.JPEG" alt="" />
 							</a>
-							<div class="caption">
-								<ul class="actions fixed">
-									<li><span class="button small">View</span></li>
-								</ul>
-							</div>
+							<p class="photo-label">Versailles, France</p>
 						</article>
 						<article>
 							<a href="images/gallery/DSC_1589-HDR.jpg_compressed.JPEG" class="image">
 								<img src="images/gallery/DSC_1589-HDR.jpg_compressed.JPEG" alt="" />
 							</a>
-							<div class="caption">
-								<ul class="actions fixed">
-									<li><span class="button small">View</span></li>
-								</ul>
-							</div>
+							<p class="photo-label">Paris, France</p>
 						</article>
 						<article>
 							<a href="images/gallery/DSC_1631-Pano.jpg_compressed.JPEG" class="image">
 								<img src="images/gallery/DSC_1631-Pano.jpg_compressed.JPEG" alt="" />
 							</a>
-							<div class="caption">
-								<ul class="actions fixed">
-									<li><span class="button small">View</span></li>
-								</ul>
-							</div>
+							<p class="photo-label">Florida Keys</p>
 						</article>
 						<article>
 							<a href="images/gallery/DSC_1747-HDR.jpg_compressed.JPEG" class="image">
 								<img src="images/gallery/DSC_1747-HDR.jpg_compressed.JPEG" alt="" />
 							</a>
-							<div class="caption">
-								<ul class="actions fixed">
-									<li><span class="button small">View</span></li>
-								</ul>
-							</div>
+							<p class="photo-label">Pacifica, California</p>
 						</article>
 						<article>
 							<a href="images/gallery/DSC_1818.JPG_compressed.JPEG" class="image">
 								<img src="images/gallery/DSC_1818.JPG_compressed.JPEG" alt="" />
 							</a>
-							<div class="caption">
-								<ul class="actions fixed">
-									<li><span class="button small">View</span></li>
-								</ul>
-							</div>
+							<p class="photo-label">Carrizo Plain, California</p>
 						</article>
 						<article>
 							<a href="images/gallery/DSC_1926.jpg_compressed.JPEG" class="image">
 								<img src="images/gallery/DSC_1926.jpg_compressed.JPEG" alt="" />
 							</a>
-							<div class="caption">
-								<ul class="actions fixed">
-									<li><span class="button small">View</span></li>
-								</ul>
-							</div>
+							<p class="photo-label">Pacifica, California</p>
 						</article>
 						<article>
 							<a href="images/gallery/DSC_1971.JPG_compressed.JPEG" class="image">
 								<img src="images/gallery/DSC_1971.JPG_compressed.JPEG" alt="" />
 							</a>
-							<div class="caption">
-								<ul class="actions fixed">
-									<li><span class="button small">View</span></li>
-								</ul>
-							</div>
+							<p class="photo-label">Pacifica, California</p>
 						</article>
 						<article>
 							<a href="images/gallery/DSC_2482.jpg_compressed.JPEG" class="image">
 								<img src="images/gallery/DSC_2482.jpg_compressed.JPEG" alt="" />
 							</a>
-							<div class="caption">
-								<ul class="actions fixed">
-									<li><span class="button small">View</span></li>
-								</ul>
-							</div>
+							<p class="photo-label">Yosemite National Park, California</p>
 						</article>
 						<article>
 							<a href="images/gallery/DSC_2484.jpg_compressed.JPEG" class="image">
 								<img src="images/gallery/DSC_2484.jpg_compressed.JPEG" alt="" />
 							</a>
-							<div class="caption">
-								<ul class="actions fixed">
-									<li><span class="button small">View</span></li>
-								</ul>
-							</div>
+							<p class="photo-label">Yosemite National Park, California</p>
 						</article>
 						<article>
 							<a href="images/gallery/DSC_2686-HDR.jpg_compressed.JPEG" class="image">
 								<img src="images/gallery/DSC_2686-HDR.jpg_compressed.JPEG" alt="" />
 							</a>
-							<div class="caption">
-								<ul class="actions fixed">
-									<li><span class="button small">View</span></li>
-								</ul>
-							</div>
+							<p class="photo-label">Stockholm, Sweden</p>
 						</article>
 						<article>
 							<a href="images/gallery/DSC_2723.jpg_compressed.JPEG" class="image">
 								<img src="images/gallery/DSC_2723.jpg_compressed.JPEG" alt="" />
 							</a>
-							<div class="caption">
-								<ul class="actions fixed">
-									<li><span class="button small">View</span></li>
-								</ul>
-							</div>
+							<p class="photo-label">Stockholm, Sweden</p>
 						</article>
 						<article>
 							<a href="images/gallery/DSC_2781-2.jpg_compressed.JPEG" class="image">
 								<img src="images/gallery/DSC_2781-2.jpg_compressed.JPEG" alt="" />
 							</a>
-							<div class="caption">
-								<ul class="actions fixed">
-									<li><span class="button small">View</span></li>
-								</ul>
-							</div>
+							<p class="photo-label">Yosemite National Park, California</p>
 						</article>
 						<article>
 							<a href="images/gallery/DSC_2823-HDR-2.jpg_compressed.JPEG" class="image">
 								<img src="images/gallery/DSC_2823-HDR-2.jpg_compressed.JPEG" alt="" />
 							</a>
-							<div class="caption">
-								<ul class="actions fixed">
-									<li><span class="button small">View</span></li>
-								</ul>
-							</div>
+							<p class="photo-label">Yosemite National Park, California</p>
 						</article>
 						<article>
 							<a href="images/gallery/DSC_2871.jpg_compressed.JPEG" class="image">
 								<img src="images/gallery/DSC_2871.jpg_compressed.JPEG" alt="" />
 							</a>
-							<div class="caption">
-								<ul class="actions fixed">
-									<li><span class="button small">View</span></li>
-								</ul>
-							</div>
+							<p class="photo-label">Stockholm, Sweden</p>
 						</article>
 						<article>
 							<a href="images/gallery/DSC_2941.jpg_compressed.JPEG" class="image">
 								<img src="images/gallery/DSC_2941.jpg_compressed.JPEG" alt="" />
 							</a>
-							<div class="caption">
-								<ul class="actions fixed">
-									<li><span class="button small">View</span></li>
-								</ul>
-							</div>
+							<p class="photo-label">Tyresta National Park, Sweden</p>
 						</article>
 						<article>
 							<a href="images/gallery/DSC_3012.jpg_compressed.JPEG" class="image">
 								<img src="images/gallery/DSC_3012.jpg_compressed.JPEG" alt="" />
 							</a>
-							<div class="caption">
-								<ul class="actions fixed">
-									<li><span class="button small">View</span></li>
-								</ul>
-							</div>
+							<p class="photo-label">Stockholm, Sweden</p>
 						</article>
 						<article>
 							<a href="images/gallery/DSC_3014.JPG_compressed.JPEG" class="image">
 								<img src="images/gallery/DSC_3014.JPG_compressed.JPEG" alt="" />
 							</a>
-							<div class="caption">
-								<ul class="actions fixed">
-									<li><span class="button small">View</span></li>
-								</ul>
-							</div>
+							<p class="photo-label">Rome, Italy</p>
 						</article>
 						<article>
 							<a href="images/gallery/DSC_3015.JPG_compressed.JPEG" class="image">
 								<img src="images/gallery/DSC_3015.JPG_compressed.JPEG" alt="" />
 							</a>
-							<div class="caption">
-								<ul class="actions fixed">
-									<li><span class="button small">View</span></li>
-								</ul>
-							</div>
+							<p class="photo-label">Rome, Italy</p>
 						</article>
 						<article>
 							<a href="images/gallery/DSC_3034.jpg_compressed.JPEG" class="image">
 								<img src="images/gallery/DSC_3034.jpg_compressed.JPEG" alt="" />
 							</a>
-							<div class="caption">
-								<ul class="actions fixed">
-									<li><span class="button small">View</span></li>
-								</ul>
-							</div>
+							<p class="photo-label">Rome, Italy</p>
 						</article>
 						<article>
 							<a href="images/gallery/DSC_3057.jpg_compressed.JPEG" class="image">
 								<img src="images/gallery/DSC_3057.jpg_compressed.JPEG" alt="" />
 							</a>
-							<div class="caption">
-								<ul class="actions fixed">
-									<li><span class="button small">View</span></li>
-								</ul>
-							</div>
+							<p class="photo-label">Rome, Italy</p>
 						</article>
 						<article>
 							<a href="images/gallery/DSC_3059.jpg_compressed.JPEG" class="image">
 								<img src="images/gallery/DSC_3059.jpg_compressed.JPEG" alt="" />
 							</a>
-							<div class="caption">
-								<ul class="actions fixed">
-									<li><span class="button small">View</span></li>
-								</ul>
-							</div>
+							<p class="photo-label">Rome, Italy</p>
 						</article>
 						<article>
 							<a href="images/gallery/DSC_3072.jpg_compressed.JPEG" class="image">
 								<img src="images/gallery/DSC_3072.jpg_compressed.JPEG" alt="" />
 							</a>
-							<div class="caption">
-								<ul class="actions fixed">
-									<li><span class="button small">View</span></li>
-								</ul>
-							</div>
+							<p class="photo-label">Rome, Italy</p>
 						</article>
 						<article>
 							<a href="images/gallery/DSC_3201.jpg_compressed.JPEG" class="image">
 								<img src="images/gallery/DSC_3201.jpg_compressed.JPEG" alt="" />
 							</a>
-							<div class="caption">
-								<ul class="actions fixed">
-									<li><span class="button small">View</span></li>
-								</ul>
-							</div>
+							<p class="photo-label">Rome, Italy</p>
 						</article>
 						<article>
 							<a href="images/gallery/DSC_3381.jpg_compressed.JPEG" class="image">
 								<img src="images/gallery/DSC_3381.jpg_compressed.JPEG" alt="" />
 							</a>
-							<div class="caption">
-								<ul class="actions fixed">
-									<li><span class="button small">View</span></li>
-								</ul>
-							</div>
+							<p class="photo-label">Rome, Italy</p>
 						</article>
 						<article>
 							<a href="images/gallery/DSC_3476.jpg_compressed.JPEG" class="image">
 								<img src="images/gallery/DSC_3476.jpg_compressed.JPEG" alt="" />
 							</a>
-							<div class="caption">
-								<ul class="actions fixed">
-									<li><span class="button small">View</span></li>
-								</ul>
-							</div>
+							<p class="photo-label">Rome, Italy</p>
 						</article>
 						<article>
 							<a href="images/gallery/DSC_3484.jpg_compressed.JPEG" class="image">
 								<img src="images/gallery/DSC_3484.jpg_compressed.JPEG" alt="" />
 							</a>
-							<div class="caption">
-								<ul class="actions fixed">
-									<li><span class="button small">View</span></li>
-								</ul>
-							</div>
+							<p class="photo-label">Rome, Italy</p>
 						</article>
 						<article>
 							<a href="images/gallery/DSC_3495.jpg_compressed.JPEG" class="image">
 								<img src="images/gallery/DSC_3495.jpg_compressed.JPEG" alt="" />
 							</a>
-							<div class="caption">
-								<ul class="actions fixed">
-									<li><span class="button small">View</span></li>
-								</ul>
-							</div>
+							<p class="photo-label">Venice, Italy</p>
 						</article>
 						<article>
 							<a href="images/gallery/DSC_3507.jpg_compressed.JPEG" class="image">
 								<img src="images/gallery/DSC_3507.jpg_compressed.JPEG" alt="" />
 							</a>
-							<div class="caption">
-								<ul class="actions fixed">
-									<li><span class="button small">View</span></li>
-								</ul>
-							</div>
+							<p class="photo-label">Venice, Italy</p>
 						</article>
 						<article>
 							<a href="images/gallery/DSC_3553.jpg_compressed.JPEG" class="image">
 								<img src="images/gallery/DSC_3553.jpg_compressed.JPEG" alt="" />
 							</a>
-							<div class="caption">
-								<ul class="actions fixed">
-									<li><span class="button small">View</span></li>
-								</ul>
-							</div>
+							<p class="photo-label">Venice, Italy</p>
 						</article>
 						<article>
 							<a href="images/gallery/DSC_3606-HDR.jpg_compressed.JPEG" class="image">
 								<img src="images/gallery/DSC_3606-HDR.jpg_compressed.JPEG" alt="" />
 							</a>
-							<div class="caption">
-								<ul class="actions fixed">
-									<li><span class="button small">View</span></li>
-								</ul>
-							</div>
+							<p class="photo-label">Venice, Italy</p>
 						</article>
 						<article>
 							<a href="images/gallery/DSC_3618.jpg_compressed.JPEG" class="image">
 								<img src="images/gallery/DSC_3618.jpg_compressed.JPEG" alt="" />
 							</a>
-							<div class="caption">
-								<ul class="actions fixed">
-									<li><span class="button small">View</span></li>
-								</ul>
-							</div>
+							<p class="photo-label">Venice, Italy</p>
 						</article>
 						<article>
 							<a href="images/gallery/DSC_3636.jpg_compressed.JPEG" class="image">
 								<img src="images/gallery/DSC_3636.jpg_compressed.JPEG" alt="" />
 							</a>
-							<div class="caption">
-								<ul class="actions fixed">
-									<li><span class="button small">View</span></li>
-								</ul>
-							</div>
+							<p class="photo-label">Venice, Italy</p>
 						</article>
 						<article>
 							<a href="images/gallery/DSC_3648.jpg_compressed.JPEG" class="image">
 								<img src="images/gallery/DSC_3648.jpg_compressed.JPEG" alt="" />
 							</a>
-							<div class="caption">
-								<ul class="actions fixed">
-									<li><span class="button small">View</span></li>
-								</ul>
-							</div>
+							<p class="photo-label">Venice, Italy</p>
 						</article>
 						<article>
 							<a href="images/gallery/DSC_3944.jpg_compressed.JPEG" class="image">
 								<img src="images/gallery/DSC_3944.jpg_compressed.JPEG" alt="" />
 							</a>
-							<div class="caption">
-								<ul class="actions fixed">
-									<li><span class="button small">View</span></li>
-								</ul>
-							</div>
+							<p class="photo-label">Venice, Italy</p>
 						</article>
 						<article>
 							<a href="images/gallery/DSC_4159-HDR.jpg_compressed.JPEG" class="image">
 								<img src="images/gallery/DSC_4159-HDR.jpg_compressed.JPEG" alt="" />
 							</a>
-							<div class="caption">
-								<ul class="actions fixed">
-									<li><span class="button small">View</span></li>
-								</ul>
-							</div>
+							<p class="photo-label">Cinque Terre, Italy</p>
 						</article>
 						<article>
 							<a href="images/gallery/DSC_4354-HDR.jpg_compressed.JPEG" class="image">
 								<img src="images/gallery/DSC_4354-HDR.jpg_compressed.JPEG" alt="" />
 							</a>
-							<div class="caption">
-								<ul class="actions fixed">
-									<li><span class="button small">View</span></li>
-								</ul>
-							</div>
+							<p class="photo-label">Cinque Terre, Italy</p>
 						</article>
 						<article>
 							<a href="images/gallery/DSC_4412-HDR-Pano.jpg_compressed.JPEG" class="image">
 								<img src="images/gallery/DSC_4412-HDR-Pano.jpg_compressed.JPEG" alt="" />
 							</a>
-							<div class="caption">
-								<ul class="actions fixed">
-									<li><span class="button small">View</span></li>
-								</ul>
-							</div>
+							<p class="photo-label">Cinque Terre, Italy</p>
 						</article>
 						<article>
 							<a href="images/gallery/DSC_4424.jpg_compressed.JPEG" class="image">
 								<img src="images/gallery/DSC_4424.jpg_compressed.JPEG" alt="" />
 							</a>
-							<div class="caption">
-								<ul class="actions fixed">
-									<li><span class="button small">View</span></li>
-								</ul>
-							</div>
+							<p class="photo-label">Shelter Cove, California</p>
 						</article>
 						<article>
 							<a href="images/gallery/DSC_4438-Enhanced-NR.jpg_compressed.JPEG" class="image">
 								<img src="images/gallery/DSC_4438-Enhanced-NR.jpg_compressed.JPEG" alt="" />
 							</a>
-							<div class="caption">
-								<ul class="actions fixed">
-									<li><span class="button small">View</span></li>
-								</ul>
-							</div>
+							<p class="photo-label">Humboldt Redwoods State Park, California</p>
 						</article>
 						<article>
 							<a href="images/gallery/DSC_4556-HDR-Pano.jpg_compressed.JPEG" class="image">
 								<img src="images/gallery/DSC_4556-HDR-Pano.jpg_compressed.JPEG" alt="" />
 							</a>
-							<div class="caption">
-								<ul class="actions fixed">
-									<li><span class="button small">View</span></li>
-								</ul>
-							</div>
+							<p class="photo-label">Cinque Terre, Italy</p>
 						</article>
 						<article>
 							<a href="images/gallery/DSC_4980-HDR.jpg_compressed.JPEG" class="image">
 								<img src="images/gallery/DSC_4980-HDR.jpg_compressed.JPEG" alt="" />
 							</a>
-							<div class="caption">
-								<ul class="actions fixed">
-									<li><span class="button small">View</span></li>
-								</ul>
-							</div>
+							<p class="photo-label">Sequoia National Park, California</p>
 						</article>
 						<article>
 							<a href="images/gallery/DSC_5129.jpg_compressed.JPEG" class="image">
 								<img src="images/gallery/DSC_5129.jpg_compressed.JPEG" alt="" />
 							</a>
-							<div class="caption">
-								<ul class="actions fixed">
-									<li><span class="button small">View</span></li>
-								</ul>
-							</div>
+							<p class="photo-label">Sequoia National Park, California</p>
 						</article>
 						<article>
 							<a href="images/gallery/DSC_5266.jpg_compressed.JPEG" class="image">
 								<img src="images/gallery/DSC_5266.jpg_compressed.JPEG" alt="" />
 							</a>
-							<div class="caption">
-								<ul class="actions fixed">
-									<li><span class="button small">View</span></li>
-								</ul>
-							</div>
+							<p class="photo-label">Pacifica, California</p>
 						</article>
 						<article>
 							<a href="images/gallery/DSC_5381.jpg_compressed.JPEG" class="image">
 								<img src="images/gallery/DSC_5381.jpg_compressed.JPEG" alt="" />
 							</a>
-							<div class="caption">
-								<ul class="actions fixed">
-									<li><span class="button small">View</span></li>
-								</ul>
-							</div>
+							<p class="photo-label">Paris, France</p>
 						</article>
 						<article>
 							<a href="images/gallery/DSC_5509.jpg_compressed.JPEG" class="image">
 								<img src="images/gallery/DSC_5509.jpg_compressed.JPEG" alt="" />
 							</a>
-							<div class="caption">
-								<ul class="actions fixed">
-									<li><span class="button small">View</span></li>
-								</ul>
-							</div>
+							<p class="photo-label">Ivinghoe, England</p>
 						</article>
 						<article>
 							<a href="images/gallery/DSC_5537.jpg_compressed.JPEG" class="image">
 								<img src="images/gallery/DSC_5537.jpg_compressed.JPEG" alt="" />
 							</a>
-							<div class="caption">
-								<ul class="actions fixed">
-									<li><span class="button small">View</span></li>
-								</ul>
-							</div>
+							<p class="photo-label">Ivinghoe, England</p>
 						</article>
 						<article>
 							<a href="images/gallery/DSC_5622-HDR.jpg_compressed.JPEG" class="image">
 								<img src="images/gallery/DSC_5622-HDR.jpg_compressed.JPEG" alt="" />
 							</a>
-							<div class="caption">
-								<ul class="actions fixed">
-									<li><span class="button small">View</span></li>
-								</ul>
-							</div>
+							<p class="photo-label">Ivinghoe, England</p>
 						</article>
 						<article>
 							<a href="images/gallery/DSC_5660.jpg_compressed.JPEG" class="image">
 								<img src="images/gallery/DSC_5660.jpg_compressed.JPEG" alt="" />
 							</a>
-							<div class="caption">
-								<ul class="actions fixed">
-									<li><span class="button small">View</span></li>
-								</ul>
-							</div>
+							<p class="photo-label">Pacifica, California</p>
 						</article>
 						<article>
 							<a href="images/gallery/DSC_5676.jpg_compressed.JPEG" class="image">
 								<img src="images/gallery/DSC_5676.jpg_compressed.JPEG" alt="" />
 							</a>
-							<div class="caption">
-								<ul class="actions fixed">
-									<li><span class="button small">View</span></li>
-								</ul>
-							</div>
+							<p class="photo-label">Ivinghoe, England</p>
 						</article>
 						<article>
 							<a href="images/gallery/DSC_5847.jpg_compressed.JPEG" class="image">
 								<img src="images/gallery/DSC_5847.jpg_compressed.JPEG" alt="" />
 							</a>
-							<div class="caption">
-								<ul class="actions fixed">
-									<li><span class="button small">View</span></li>
-								</ul>
-							</div>
+							<p class="photo-label">Lassen Volcanic National Park, California</p>
 						</article>
 						<article>
 							<a href="images/gallery/DSC_6248.jpg_compressed.JPEG" class="image">
 								<img src="images/gallery/DSC_6248.jpg_compressed.JPEG" alt="" />
 							</a>
-							<div class="caption">
-								<ul class="actions fixed">
-									<li><span class="button small">View</span></li>
-								</ul>
-							</div>
+							<p class="photo-label">Lassen Volcanic National Park, California</p>
 						</article>
 						<article>
 							<a href="images/gallery/DSC_6262-Pano-2.jpg_compressed.JPEG" class="image">
 								<img src="images/gallery/DSC_6262-Pano-2.jpg_compressed.JPEG" alt="" />
 							</a>
-							<div class="caption">
-								<ul class="actions fixed">
-									<li><span class="button small">View</span></li>
-								</ul>
-							</div>
+							<p class="photo-label">San Gorgonio, California</p>
 						</article>
 						<article>
 							<a href="images/gallery/DSC_6898-Pano.jpg_compressed.JPEG" class="image">
 								<img src="images/gallery/DSC_6898-Pano.jpg_compressed.JPEG" alt="" />
 							</a>
-							<div class="caption">
-								<ul class="actions fixed">
-									<li><span class="button small">View</span></li>
-								</ul>
-							</div>
+							<p class="photo-label">White Mountains, New Hampshire</p>
 						</article>
 						<article>
 							<a href="images/gallery/DSC_6912.jpg_compressed.JPEG" class="image">
 								<img src="images/gallery/DSC_6912.jpg_compressed.JPEG" alt="" />
 							</a>
-							<div class="caption">
-								<ul class="actions fixed">
-									<li><span class="button small">View</span></li>
-								</ul>
-							</div>
+							<p class="photo-label">New York City, New York</p>
 						</article>
 						<article>
 							<a href="images/gallery/DSC_7313.jpg_compressed.JPEG" class="image">
 								<img src="images/gallery/DSC_7313.jpg_compressed.JPEG" alt="" />
 							</a>
-							<div class="caption">
-								<ul class="actions fixed">
-									<li><span class="button small">View</span></li>
-								</ul>
-							</div>
+							<p class="photo-label">Pacifica, California</p>
 						</article>
 						<article>
 							<a href="images/gallery/DSC_7774-HDR.jpg_compressed.JPEG" class="image">
 								<img src="images/gallery/DSC_7774-HDR.jpg_compressed.JPEG" alt="" />
 							</a>
-							<div class="caption">
-								<ul class="actions fixed">
-									<li><span class="button small">View</span></li>
-								</ul>
-							</div>
+							<p class="photo-label">Kanazawa, Japan</p>
 						</article>
 						<article>
 							<a href="images/gallery/DSC_8634-2.jpg_compressed.JPEG" class="image">
 								<img src="images/gallery/DSC_8634-2.jpg_compressed.JPEG" alt="" />
 							</a>
-							<div class="caption">
-								<ul class="actions fixed">
-									<li><span class="button small">View</span></li>
-								</ul>
-							</div>
+							<p class="photo-label">Kanazawa, Japan</p>
 						</article>
 						<article>
 							<a href="images/gallery/DSC_8856.jpg_compressed.JPEG" class="image">
 								<img src="images/gallery/DSC_8856.jpg_compressed.JPEG" alt="" />
 							</a>
-							<div class="caption">
-								<ul class="actions fixed">
-									<li><span class="button small">View</span></li>
-								</ul>
-							</div>
+							<p class="photo-label">Shirakawago, Japan</p>
 						</article>
 						<article>
 							<a href="images/gallery/DSC_9059-Enhanced-NR.jpg_compressed.JPEG" class="image">
 								<img src="images/gallery/DSC_9059-Enhanced-NR.jpg_compressed.JPEG" alt="" />
 							</a>
-							<div class="caption">
-								<ul class="actions fixed">
-									<li><span class="button small">View</span></li>
-								</ul>
-							</div>
+							<p class="photo-label">Shirakawago, Japan</p>
 						</article>
 						<article>
 							<a href="images/gallery/DSC_9100.jpg_compressed.JPEG" class="image">
 								<img src="images/gallery/DSC_9100.jpg_compressed.JPEG" alt="" />
 							</a>
-							<div class="caption">
-								<ul class="actions fixed">
-									<li><span class="button small">View</span></li>
-								</ul>
-							</div>
+							<p class="photo-label">Kyoto, Japan</p>
 						</article>
 						<article>
 							<a href="images/gallery/DSC_9213.jpg_compressed.JPEG" class="image">
 								<img src="images/gallery/DSC_9213.jpg_compressed.JPEG" alt="" />
 							</a>
-							<div class="caption">
-								<ul class="actions fixed">
-									<li><span class="button small">View</span></li>
-								</ul>
-							</div>
+							<p class="photo-label">Kyoto, Japan</p>
 						</article>
 						<article>
 							<a href="images/gallery/DSC_9301-HDR.jpg_compressed.JPEG" class="image">
 								<img src="images/gallery/DSC_9301-HDR.jpg_compressed.JPEG" alt="" />
 							</a>
-							<div class="caption">
-								<ul class="actions fixed">
-									<li><span class="button small">View</span></li>
-								</ul>
-							</div>
+							<p class="photo-label"></p>
 						</article>
 						</div>
 					</section>
 
 				<!-- Music -->
-					<section class="spotlight style1 orient-left content-align-left image-position-center onscroll-image-fade-in" id="selfhosting">
+					<section class="spotlight style1 orient-left content-align-left image-position-center onscroll-image-fade-in" id="music">
 						<div class="content">
 							<h2>Music</h2>
 							<p>I love music, and I've tracked nearly every song I've listened to since 2014 on Last.fm (see below). Don't judge me too hard, please. Sadly, I cannot play any instruments, unfortunately, as much as I've tried to learn piano, guitar, and even general music production with a MIDI controller.</p>
