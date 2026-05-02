@@ -14,13 +14,23 @@
 		<style>
 			.actions.stacked .button { white-space: nowrap !important; }
 			#wrapper > section:first-child .content {
-				transform: translateY(10vh);
 				text-align: center;
-				padding: 2rem 2.5rem;
+				padding: 2rem 2.5rem 1rem;
 			}
 			#wrapper > section:first-child .content h1 {
 				margin-top: 0;
-				margin-bottom: 0.25rem;
+				margin-bottom: 1rem;
+				}
+			#wrapper > section:first-child .content .actions {
+				justify-content: center;
+			}
+			#vaccines .actions li:nth-child(1) .button,
+			#vaccines .actions li:nth-child(2) .button {
+				width: max-content;
+			}
+			#about .content {
+				padding-top: 7rem;
+				padding-bottom: 7rem;
 			}
 		</style>
 	</head>
@@ -33,6 +43,10 @@
 					<section class="banner style2 orient-center content-align-center image-position-center onload-image-fade-in onscroll-image-fade-in fullscreen">
 						<div class="content">
 							<h1>Hi! I'm Ryan Duncombe</h1>
+								<ul class="actions">
+									<li><a href="#about" class="button smooth-scroll-middle">Research</a></li>
+									<li><a href="personal.html" class="button">Personal</a></li>
+							</ul>
 						</div>
 						<div class="image">
 							<img src="images/bannerp.jpg" alt="" style="object-position: top;" />
@@ -44,25 +58,23 @@
 					<section class="spotlight style1 orient-right content-align-left image-position-center onscroll-image-fade-in" id="about">
 						<div class="content">
 							<h2>About me</h2>
-							<p>I'm a Senior Scientist at the Mirror Biology Dialogues Fund, where I research the feasibility and risks of creating mirror bacteria. I care a lot about making the world healthier and safer from pathogens. I'm an immunologist by training, and have experience in vaccine development and biosecurity. I'm based in Pacifica, California, just south of San Francisco.</p>
-							<ul class="actions stacked">
-								<li><a href="#research" class="button wide smooth-scroll-middle">Research</a></li>
-								<li><a href="personal.html" class="button wide">Personal</a></li>
-							</ul>
+							<p>I care a lot about making the world safer from pathogens and other biological risks. I'm currently a Senior Scientist at the Mirror Biology Dialogues Fund, where I research the feasibility and risks of creating mirror bacteria (more on this below!). I received my PhD in immunology from the University of Chicago and have experience in vaccine development and biosecurity.</p>
+							<p>I live in Pacifica, California, just south of San Francisco.</p>
+							<p>Below is an overview of research projects past and present, in reverse chronological order.</p>
 						</div>
 						<div class="image">
-							<img src="images/headshot.jpg" alt="" />
-							<p style="position: absolute; bottom: 0.75rem; right: 1rem; margin: 0; font-size: 0.85em; color: rgba(255,255,255,0.8); font-style: italic; text-shadow: 0 1px 3px rgba(0,0,0,0.6);">Photo taken by my wife near our home.</p>
+							<img src="images/headshot2.jpg" alt="" />
+							<p style="position: absolute; bottom: 0.75rem; right: 1rem; margin: 0; font-size: 0.85em; color: rgba(255,255,255,0.8); font-style: italic; text-shadow: 0 1px 3px rgba(0,0,0,0.6);"></p>
 						</div>
 					</section>
 
-				<!-- Research -->
+				<!-- Research 
 					<section class="wrapper style1 align-center" id="research">
 						<div class="inner">
 							<h2>Research</h2>
 							<p>My work experience spans immunology, vaccine development, and biosecurity. Below is an overview of projects past and present, in reverse chronological order.</p>
 						</div>
-					</section>
+					</section>-->
 
 				<!-- Mirror Biology -->
 					<section class="spotlight style1 orient-left content-align-left image-position-center onscroll-image-fade-in">
@@ -85,11 +97,13 @@
 					<section class="spotlight style1 orient-right content-align-left image-position-center onscroll-image-fade-in">
 						<div class="content">
 							<h2>Vaccines &amp; Global Health</h2>
-							<p>At 1Day Sooner, I led a team of researchers to push for accelerating the rollout of the newly approved R21 malaria vaccine in Africa, conducting cost-efficacy analyses and regulatory advocacy. Before that, as a Senior Scientist at Alvea, I helped design and test three vaccine candidates in preclinical trials: a shelf-stable DNA vaccine against Omicron BA.2, an 18-valent inhalable SARS-CoV-2 vaccine, and a 25-valent pan-influenza A vaccine. I also co-authored a biosecurity report with the Council on Strategic Risks and have written about vaccine science for Asimov Press.</p>
+							<p>Before MBDF, I worked at 1Day Sooner, where I led a team of researchers to push for accelerating the rollout of the (then) newly approved R21 malaria vaccine in Africa, primarily by conducting cost-efficacy analyses and regulatory advocacy. Before that, I worked at Alvea, a small biotech startup where I helped design and test three vaccine candidates in preclinical trials: a shelf-stable DNA vaccine against Omicron BA.2, an 18-valent inhalable SARS-CoV-2 vaccine, and a 25-valent pan-influenza A vaccine. I was also a 2022 Emerging Leader in Biosecurity Initiative Fellow at the Johns Hopkins Center for Health Security. I have co-authored a biosecurity report with the Council on Strategic Risks and have written about vaccine science for Asimov Press.</p>
 							<ul class="actions stacked">
-								<li><a href="https://www.1daysooner.org/" class="button wide">1Day Sooner</a></li>
-								<li><a href="https://www.cgdev.org/publication/avoiding-another-lost-decade-malaria-vaccines" class="button wide">Accelerating malaria vaccine rollout</a></li>
+								<li><a href="https://www.cgdev.org/publication/avoiding-another-lost-decade-malaria-vaccines" class="button wide">Accelerating Malaria Vaccines</a></li>
 								<li><a href="https://www.asimov.press/p/flu-vaccines" class="button wide">The Quest for Universal Flu Vaccines</a></li>
+								<li><a href="1daysooner.org" class="button wide">1Day Sooner</a></li>
+								<li><a href="https://www.alvea.bio/alvea-set-the-record-for-the-fastest-startup-to-take-a-new-drug-into-a-phase-1-clinical-trial-from-founding-to-first-in-human-date/" class="button wide">Alvea</a><li>
+								</li></a></li>
 							</ul>
 						</div>
 						<div class="image">
@@ -103,7 +117,7 @@
 					<section class="spotlight style1 orient-left content-align-left image-position-center onscroll-image-fade-in">
 						<div class="content">
 							<h2>Immunology research</h2>
-							<p>I completed my Ph.D. in Immunology at the University of Chicago in 2021, advised by Dr. Erin Adams. My dissertation examined the molecular basis of self-antigen recognition by regulatory T cells, asking how the immune system distinguishes self from non-self in ways that govern cancer immunity and autoimmune disease. I applied protein engineering, next-generation sequencing, and X-ray crystallography techniques to answer fundamental questions in T cell biology.</p>
+							<p>I completed my Ph.D. in Immunology at the University of Chicago in 2021, in the lab of Dr. Erin Adams. My dissertation examined the molecular basis of self-antigen recognition by regulatory T cells, an anti-inflammatory class of immune cell. My project's purpose was to understand how the immune system distinguishes self from non-self in ways that govern cancer immunity and autoimmune disease. I applied protein engineering, next-generation sequencing, and X-ray crystallography techniques to answer fundamental questions in T cell biology. Before that, I graduated with my bachelors degree in biology from the University of California, Santa Barbara</p>
 							<ul class="actions stacked">
 								<li><a href="https://scholar.google.com/citations?user=dt-zPeYAAAAJ&hl=en&oi=ao" class="button wide">Publications</a></li>
 							</ul>
