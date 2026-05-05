@@ -43,7 +43,7 @@ TOP_FINE_GENRES = 12  # for the fine-genre-over-time chart
 GENRE_MAP: list[tuple[str, list[str]]] = [
     ("Classical", [
         "classical", "baroque", "romantic classical", "opera", "orchestral",
-        "symphony", "chamber music", "choral", "minimalism", "modern classical",
+        "symphony", "chamber music", "choral", "modern classical",
         "renaissance", "early music", "gregorian", "cantata", "concerto",
     ]),
     ("Soundtrack", ["film score", "soundtrack", "video game"]),
@@ -61,22 +61,21 @@ GENRE_MAP: list[tuple[str, list[str]]] = [
         "afrobeat", "celtic", "nordic", "raga", "indian classical",
         "middle eastern", "asian", "african", "balkan",
     ]),
+    ("Ambient", ["ambient","minimalism"])
     ("Electronic", [
-        "electronic", "electronica", "techno", "house", "ambient", "idm",
+        "electronic", "electronica", "techno", "house",  "idm",
         "dubstep", "drum and bass", "synth", "edm", "downtempo", "trance",
     ]),
     ("Classic Rock", [
         "classic rock", "psychedelic rock", "progressive rock", "art rock",
-        "krautrock", "southern rock", "glam rock",
+        "krautrock", "southern rock", "glam rock", "arena rock"
     ]),
-    ("Hard Rock", ["hard rock", "arena rock"]),
     ("Indie/Alt Rock", [
         "indie rock", "alternative rock", "indie", "alternative", "post-rock",
         "shoegaze", "math rock", "noise rock",
     ]),
-    ("Pop Rock", ["pop rock", "soft rock", "power pop"]),
-    ("Pop", ["pop", "art pop", "indie pop", "synth-pop", "dream pop"]),
-    ("Rock", ["rock"]),  # final catchall
+    ("Pop", ["pop", "art pop", "pop rock", "power pop", "indie pop", "synth-pop", "dream pop"]),
+    ("Rock", ["rock", "soft rock", "hard rock"]),  # final catchall
     ("Experimental", ["experimental", "avant-garde", "noise", "drone"]),
 ]
 COARSE_OTHER = "Other"
