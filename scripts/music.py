@@ -61,7 +61,7 @@ GENRE_MAP: list[tuple[str, list[str]]] = [
         "afrobeat", "celtic", "nordic", "raga", "indian classical",
         "middle eastern", "asian", "african", "balkan",
     ]),
-    ("Ambient", ["ambient","minimalism"])
+    ("Ambient", ["ambient","minimalism"]),
     ("Electronic", [
         "electronic", "electronica", "techno", "house",  "idm",
         "dubstep", "drum and bass", "synth", "edm", "downtempo", "trance",
@@ -146,8 +146,16 @@ def load_data(csv_path: Path) -> pd.DataFrame:
     df = df.dropna(subset=["dt"]).copy()
     df["year"] = df["dt"].dt.year
     df["month"] = df["dt"].dt.to_period("M").dt.to_timestamp()
-    df["hour"] = df["dt"].dt.hour
-    df["dow"] = df["dt"].dt.dayofweek  # 0 = Monday
+
+    # Convert UTC timestamps to approximate local time.
+    # Pre-2022: America/Chicago (Chicago years); 2022+: America/Los_Angeles (Pacifica).
+    # Travel periods will still be slightly off — unavoidable without GPS data.
+    dt_utc = pd.to_datetime(df["uts"], unit="s", utc=True)
+    pre = df["year"] < 2022
+    local_chi = dt_utc[pre].dt.tz_convert("America/Chicago")
+    local_la  = dt_utc[~pre].dt.tz_convert("America/Los_Angeles")
+    df["hour"] = pd.concat([local_chi.dt.hour, local_la.dt.hour]).sort_index()
+    df["dow"]  = pd.concat([local_chi.dt.dayofweek, local_la.dt.dayofweek]).sort_index()
 
     # Tokenize genres: split on '|', strip, lowercase. NaN → empty list.
     def tokenize(g):
@@ -196,7 +204,7 @@ def chart_listening_hour(df: pd.DataFrame) -> go.Figure:
     ))
     fig.update_layout(
         title="What time of day do I listen?",
-        xaxis=dict(title="Hour of day (UTC)", dtick=1),
+        xaxis=dict(title="Hour of day (local time)", dtick=1),
         yaxis_title="Plays",
     )
     return _apply_layout(fig)
@@ -214,7 +222,7 @@ def chart_hour_dow_heatmap(df: pd.DataFrame) -> go.Figure:
     ))
     fig.update_layout(
         title="When I listen (hour × day of week)",
-        xaxis=dict(title="Hour of day (UTC)", dtick=1),
+        xaxis=dict(title="Hour of day (local time)", dtick=1),
         yaxis=dict(title=None, autorange="reversed"),
     )
     return _apply_layout(fig, height=420)
@@ -393,6 +401,89 @@ def chart_artist_diversity(df: pd.DataFrame) -> go.Figure:
     return _apply_layout(fig)
 
 
+def chart_playcount_buckets(df: pd.DataFrame) -> go.Figure:
+    song_plays = df.groupby(["artist", "track"]).size()
+    total_plays = song_plays.sum()
+    max_plays = int(song_plays.max())
+
+    bins   = [0, 1, 5, 20, 100, float("inf")]
+    labels = ["Heard once", "2–5×", "6–20×", "21–100×", "100+×"]
+    buckets = pd.cut(song_plays, bins=bins, labels=labels, right=True)
+
+    song_counts  = buckets.value_counts().reindex(labels, fill_value=0)
+    listen_pcts  = song_plays.groupby(buckets).sum().reindex(labels, fill_value=0) / total_plays * 100
+
+    fig = go.Figure()
+    fig.add_trace(go.Bar(
+        name="Unique songs", x=labels, y=song_counts.values,
+        marker_color=ACCENT, marker_line_color=ACCENT_DARK, marker_line_width=1,
+        yaxis="y",
+        hovertemplate="<b>%{x}</b><br>%{y:,} songs (%{customdata:.1f}% of listens)<extra></extra>",
+        customdata=listen_pcts.values,
+    ))
+    fig.add_trace(go.Scatter(
+        name="% of total listens", x=labels, y=listen_pcts.values,
+        mode="lines+markers", yaxis="y2",
+        line=dict(color=ACCENT_DARK, width=2.5),
+        marker=dict(size=8, color=ACCENT_DARK),
+        hovertemplate="<b>%{x}</b><br>%{y:.1f}% of all listens<extra></extra>",
+    ))
+    fig.update_layout(
+        title="How often do I replay songs?",
+        xaxis_title=None,
+        yaxis=dict(title="Unique songs", gridcolor="rgba(0,0,0,0.08)", linecolor="rgba(0,0,0,0.2)"),
+        yaxis2=dict(title="% of total listens", overlaying="y", side="right",
+                    ticksuffix="%", showgrid=False, linecolor="rgba(0,0,0,0.2)"),
+        legend=dict(orientation="h", y=1.12, x=0.5, xanchor="center"),
+        barmode="group",
+    )
+    return _apply_layout(fig)
+
+
+def chart_pareto(df: pd.DataFrame) -> go.Figure:
+    song_plays = df.groupby(["artist", "track"]).size().sort_values(ascending=False)
+    total_plays = song_plays.sum()
+    total_songs = len(song_plays)
+
+    cum_plays_pct = (song_plays.cumsum() / total_plays * 100).values
+    songs_pct = np.linspace(0, 100, total_songs, endpoint=False)
+
+    # Downsample to ~2000 points for performance without losing curve shape.
+    if total_songs > 2000:
+        idx = np.unique(np.round(np.linspace(0, total_songs - 1, 2000)).astype(int))
+        songs_pct_plot = songs_pct[idx]
+        cum_plays_pct_plot = cum_plays_pct[idx]
+    else:
+        songs_pct_plot, cum_plays_pct_plot = songs_pct, cum_plays_pct
+
+    # Find x% of songs that account for 80% of listens.
+    cutoff_idx = int(np.searchsorted(cum_plays_pct, 80))
+    cutoff_pct = songs_pct[min(cutoff_idx, total_songs - 1)]
+
+    fig = go.Figure()
+    fig.add_trace(go.Scatter(
+        x=songs_pct_plot, y=cum_plays_pct_plot, mode="lines",
+        line=dict(color=ACCENT_DARK, width=2.5),
+        fill="tozeroy", fillcolor="rgba(71, 211, 229, 0.18)",
+        hovertemplate="Top %{x:.1f}% of songs<br><b>%{y:.1f}%</b> of listens<extra></extra>",
+        name="Cumulative listens",
+    ))
+    # Reference: 80% line
+    fig.add_hline(y=80, line_dash="dash", line_color=MUTED, line_width=1,
+                  annotation_text=f"80% of listens → top {cutoff_pct:.1f}% of songs",
+                  annotation_position="top right",
+                  annotation_font=dict(size=12, color=MUTED))
+    fig.update_layout(
+        title="Pareto: how concentrated are my listens?",
+        xaxis=dict(title="Top X% of songs (by play count)", ticksuffix="%",
+                   showgrid=False, linecolor="rgba(0,0,0,0.2)"),
+        yaxis=dict(title="Cumulative % of total listens", ticksuffix="%",
+                   gridcolor="rgba(0,0,0,0.08)", linecolor="rgba(0,0,0,0.2)"),
+        showlegend=False,
+    )
+    return _apply_layout(fig)
+
+
 # ---------- headline stats ----------
 
 def headline_stats(df: pd.DataFrame) -> dict[str, str]:
@@ -423,6 +514,8 @@ MARKERS: list[tuple[str, str]] = [
     ("chart:era", "era"),
     ("chart:countries", "countries"),
     ("chart:diversity", "diversity"),
+    ("chart:playcount_buckets", "playcount_buckets"),
+    ("chart:pareto", "pareto"),
 ]
 
 
@@ -442,6 +535,8 @@ def build_fragments(df: pd.DataFrame) -> dict[str, str]:
         "era": chart_era(df),
         "countries": chart_artist_countries(df),
         "diversity": chart_artist_diversity(df),
+        "playcount_buckets": chart_playcount_buckets(df),
+        "pareto": chart_pareto(df),
     }
     stats = headline_stats(df)
     stat_cards = "".join(
@@ -666,6 +761,24 @@ def render_page(df: pd.DataFrame) -> str:
       <!-- chart:diversity -->
       {fragments["diversity"]}
       <!-- /chart:diversity -->
+    </div>
+  </section>
+
+  <section class="wrapper style1 align-center chart-section">
+    <div class="inner">
+      <h3>How often do I replay songs?</h3>
+      <!-- chart:playcount_buckets -->
+      {fragments["playcount_buckets"]}
+      <!-- /chart:playcount_buckets -->
+    </div>
+  </section>
+
+  <section class="wrapper style1 align-center chart-section">
+    <div class="inner">
+      <h3>Pareto: how concentrated are my listens?</h3>
+      <!-- chart:pareto -->
+      {fragments["pareto"]}
+      <!-- /chart:pareto -->
     </div>
   </section>
 
